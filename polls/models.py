@@ -24,3 +24,23 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+class EyewitnessStimuli(models.Model):
+    CONFIDENCE_SCORE = ( 60, 80, 100, )
+    LINEUP_RACE = ('B', 'W', )
+    LINEUP_NUMBER = (
+        'B1', 'B2', 'B3', 'B4', 'B5', 'B6',
+        'W1', 'W2', 'W3', 'W4', 'W5', 'W6',
+    )
+    CATEGORY = ('O1', 'Omany', 'R', 'U1', 'F', )
+    CHOICE = (1,2,3,4,5,6)
+
+    score = models.IntegerField(choices=CONFIDENCE_SCORE)
+    lineup_race = models.CharField(max_length=1, choices=LINEUP_RACE)
+    lineup_number = models.CharField(max_length=2, choices=LINEUP_NUMBER)
+    category = models.CharField(max_length=10, choices=CATEGORY)
+    statement = models.TextField(max_length=100)
+    chosen_face = models.PositiveSmallIntegerField(choices=CHOICE)
+    lineup_order = models.CharField(max_length=14)
+
