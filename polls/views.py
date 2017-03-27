@@ -71,7 +71,7 @@ def vote(request, question_id):
 
 
 # userId, choices, lineups
-def sample(request, page_num):
+def sample(request):
     sample_q = get_object_or_404(EyewitnessStimuli, pk = 3)
 
     file_path = 'polls/lineups/'

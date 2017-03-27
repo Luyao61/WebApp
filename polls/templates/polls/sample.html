@@ -43,20 +43,28 @@
 
     <div class="container">
         <div class="row">
-            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="">60</button>
-            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="">80</button>
-            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="">100</button>
+            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="update()">60</button>
+            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="update()">80</button>
+            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="update()">100</button>
         </div>
     </div>
 
 
     {% block javascript %}
         <script>
-            $("#id_username").change(function () {
-            console.log( $(this).val() );
-            });
+            function update() {
+                console.log("click performed")
+            }
         </script>
+
+{#        <script>#}
+{#            $("#id_username").change(function () {#}
+{#            console.log( $(this).val() );#}
+{#            });#}
+{#        </script>#}
+{# https://simpleisbetterthancomplex.com/tutorial/2016/08/29/how-to-work-with-ajax-request-with-django.html #}
+
     {% endblock %}
-    {# https://simpleisbetterthancomplex.com/tutorial/2016/08/29/how-to-work-with-ajax-request-with-django.html #}
+
 </body>
 </html>
