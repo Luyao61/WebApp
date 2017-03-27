@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet"  href="style1.css">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'polls/sample_style.css' %}" />
 </head>
@@ -16,11 +15,48 @@
     <div class="container">
         <!-- <table style="width:100%"> -->
         <div class="row">
-            <img src="{%  static 'polls/lineups/faces_white/1/1.jpg' %}" class="img-responsive image1">
-            <img src="{%  static 'polls/lineups/faces_white/1/1.jpg' %}" class="img-responsive image1">
-            <img src="{%  static 'polls/lineups/faces_white/1/1.jpg' %}" class="img-responsive image1">
+            {% for path in lineup_order1 %}
+                {% if path == chosen %}
+                    <img id="chosen" src="{%  static path %}" class="img-responsive image1">
+                {% else %}
+                    <img src="{%  static path %}" class="img-responsive image1">
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% for path in lineup_order2 %}
+                {% if path == chosen %}
+                    <img id="chosen" src="{%  static path %}" class="img-responsive image1">
+                {% else %}
+                    <img src="{%  static path %}" class="img-responsive image1">
+                {% endif %}
+            {% endfor %}
         </div>
     <!--</center>-->
     </div>
+    <div class="container">
+        <h1>{{ statement }}</h1>
+    </div>
+
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="">60</button>
+            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="">80</button>
+            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="">100</button>
+        </div>
+    </div>
+
+
+    {% block javascript %}
+        <script>
+            $("#id_username").change(function () {
+            console.log( $(this).val() );
+            });
+        </script>
+    {% endblock %}
+    {# https://simpleisbetterthancomplex.com/tutorial/2016/08/29/how-to-work-with-ajax-request-with-django.html #}
 </body>
 </html>

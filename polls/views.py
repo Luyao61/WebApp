@@ -70,9 +70,72 @@ def vote(request, question_id):
     return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 
-def sample(request):
+# userId, choices, lineups
+def sample(request, page_num):
     sample_q = get_object_or_404(EyewitnessStimuli, pk = 3)
+
+    file_path = 'polls/lineups/'
+    lineup_number = sample_q.lineup_number
+    if lineup_number[0] == 'W':
+        file_path += 'faces_white/' + lineup_number[1] + '/'
+    else:
+        file_path += 'faces_black/' + lineup_number[1] + '/'
+
+    lineup_order = sample_q.lineup_order.split(';')
+    img_set_path = []
+    chosen_face = ""
+    for image_num in lineup_order:
+        if int(image_num) == sample_q.chosen_face:
+            chosen_face = file_path + image_num + '.jpg'
+
+        img_set_path.append(file_path + image_num + '.jpg')
+    stmt = sample_q.statement
+    print(chosen_face)
+    print(img_set_path)
+
     context = {
-        'sample' : sample_q
+        # 'sample' : sample_q,
+        # 'image_path': file_path,
+        'chosen': chosen_face,
+        'lineup_order1': img_set_path[:3],
+        'lineup_order2': img_set_path[3:],
+        'statement': stmt,
     }
     return render(request, 'polls/sample.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

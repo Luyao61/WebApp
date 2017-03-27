@@ -2,5 +2,6 @@ img {
     width: 25%;
     margin: 3%;
     float: left;
-    border: 5px solid red;
+    border: 5px solid black;
 }
+#chosen {border: 5px solid red;}
