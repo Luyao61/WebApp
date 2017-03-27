@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"  href="style1.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/sample_style.css' %}" />
+</head>
+<body>
+
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    {% load static %}
+    <div class="container">
+        <!-- <table style="width:100%"> -->
+        <div class="row">
+            <img src="{%  static 'polls/lineups/faces_white/1/1.jpg' %}" class="img-responsive image1">
+            <img src="{%  static 'polls/lineups/faces_white/1/1.jpg' %}" class="img-responsive image1">
+            <img src="{%  static 'polls/lineups/faces_white/1/1.jpg' %}" class="img-responsive image1">
+        </div>
+    <!--</center>-->
+    </div>
+</body>
+</html>
