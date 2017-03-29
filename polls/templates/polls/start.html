@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <title>Welcome Page</title>
 </head>
 <body>
     <h1>Welcome!</h1>
     <br>
     <form action="{% url 'polls:test' uid %}">
-        <input type="submit" value="START"/>
+        <input type="submit" value="START"  class = "btn btn-primary btn-lg"/>
     </form>
 
 </body>
