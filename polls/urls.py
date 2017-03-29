@@ -20,4 +20,8 @@ urlpatterns = [
 
     # sample
     url(r'^sample/$', views.sample, name='sample'),
+    url(r'^start/$', views.start, name='start'),
+    url(r'^test/(?P<uid>([A-Z]|[0-9]){14})/$', views.test, name='test'),
+
+    url(r'^record/(?P<uid>([A-Z]|[0-9]){14})/(?P<a>(60|80|100))/$', views.record_answer, name='record_answer'),
 ]

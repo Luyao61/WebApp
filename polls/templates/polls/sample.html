@@ -43,28 +43,24 @@
 
     <div class="container">
         <div class="row">
-            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="update()">60</button>
-            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="update()">80</button>
-            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" onclick="update()">100</button>
+            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" >60</button>
+            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" >80</button>
+            <button class = "btn btn-primary btn-lg" style="width:33%;" type="button" >100</button>
         </div>
     </div>
-
-
-    {% block javascript %}
-        <script>
-            function update() {
-                console.log("click performed")
-            }
-        </script>
-
-{#        <script>#}
-{#            $("#id_username").change(function () {#}
-{#            console.log( $(this).val() );#}
-{#            });#}
-{#        </script>#}
-{# https://simpleisbetterthancomplex.com/tutorial/2016/08/29/how-to-work-with-ajax-request-with-django.html #}
-
-    {% endblock %}
-
+    <br>
+    <div class="container">
+        <div class="row">
+            <form action="{% url 'polls:record_answer' uid 60 %}">
+                <input type="submit" value="60"/>
+            </form>
+            <form action="{% url 'polls:record_answer' uid 80 %}">
+                <input type="submit" value="80"/>
+            </form>
+            <form action="{% url 'polls:record_answer' uid 100 %}">
+                <input type="submit" value="100"/>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

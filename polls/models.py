@@ -1,6 +1,10 @@
 from __future__ import unicode_literals
 
+from random import randint
+
+from django.contrib.auth.models import UserManager
 from django.db import models
+from django.db.models import Count
 from django.utils import timezone
 import datetime
 
@@ -27,6 +31,7 @@ class Choice(models.Model):
 
 
 class EyewitnessStimuli(models.Model):
+
     CONFIDENCE_SCORE = ( (60, 60), (80, 80), (100, 100), )
     LINEUP_RACE = (('B', 'black'), ('W', 'white'), )
     LINEUP_NUMBER = (
@@ -43,5 +48,27 @@ class EyewitnessStimuli(models.Model):
     statement = models.TextField(max_length=100)
     chosen_face = models.IntegerField(choices=CHOICE)
     lineup_order = models.CharField(max_length=14)
+
+    def __str__(self):
+        return self.lineup_number+": "+self.statement
+
+
+class Users(models.Model):
+    userId = models.CharField(max_length=14, primary_key=True)
+
+    def __str__(self):
+        return self.userId
+
+
+class Response(models.Model):
+    CONFIDENCE_SCORE = ( (60, 60), (80, 80), (100, 100), )
+
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    question = models.ForeignKey(EyewitnessStimuli, on_delete=models.CASCADE)
+    answer = models.IntegerField(choices=CONFIDENCE_SCORE, null=True)
+
+    def __str__(self):
+        return self.user.userId
+
 
 
