@@ -106,8 +106,13 @@ def sample(request):
 
 
 def start(request):
+
+    return render(request, 'polls/start.html')
+
+
+def create_new_user(request):
     uid = uuid.uuid4().hex[:14].upper()
-    while Users.objects.filter(pk = uid).exists():
+    while Users.objects.filter(pk=uid).exists():
         uid = uuid.uuid4().hex[:14].upper()
 
     new_user = Users(userId=uid)
@@ -118,7 +123,7 @@ def start(request):
     context = {
         'uid': uid
     }
-    return render(request, 'polls/start.html', context)
+    return HttpResponseRedirect(reverse('polls:test', args=(uid,)))
 
 
 def test(request, uid):

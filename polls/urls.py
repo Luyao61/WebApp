@@ -24,4 +24,6 @@ urlpatterns = [
     url(r'^test/(?P<uid>([A-Z]|[0-9]){14})/$', views.test, name='test'),
 
     url(r'^record/(?P<uid>([A-Z]|[0-9]){14})/(?P<a>(60|80|100))/$', views.record_answer, name='record_answer'),
+    url(r'^create_new_user/$', views.create_new_user, name='create_new_user'),
+
 ]

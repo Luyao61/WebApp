@@ -7,11 +7,14 @@
     <title>Welcome Page</title>
 </head>
 <body>
-    <h1>Welcome!</h1>
-    <br>
-    <form action="{% url 'polls:test' uid %}">
-        <input type="submit" value="START"  class = "btn btn-primary btn-lg"/>
-    </form>
+    <div class="jumbotron text-center" style="background-color: inherit">
+        <h1>Welcome!</h1>
+        <p> some message here </p>
+        <form action="{% url 'polls:create_new_user' %}">
+            <input type="submit" value="START"  class = "btn btn-primary btn-lg"/>
+        </form>
+    </div>
+
 
 </body>
 </html>
