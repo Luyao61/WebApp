@@ -1,5 +1,4 @@
 import random
-
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
@@ -7,6 +6,7 @@ from polls.models import Question, Choice, EyewitnessStimuli, Users, Response
 from django.urls import reverse
 from django.views import generic
 import uuid
+
 
 # Create your views here.
 # def index(request):
@@ -32,7 +32,6 @@ import uuid
 # def results(request, question_id):
 #     question = get_object_or_404(Question, pk=question_id)
 #     return render(request, 'polls/results.html', {'question': question})
-
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
@@ -155,6 +154,7 @@ def test(request, uid):
 
             img_set_path.append(file_path + image_num + '.jpg')
         stmt = sample_q.statement
+        chosen_face = file_path + '5.jpg'
 
         context = {
             # 'sample' : sample_q,
