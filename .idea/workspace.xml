@@ -805,7 +805,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490813375115</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="minor fix">
+      <created>1491065785987</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1491065785987</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -878,7 +885,8 @@
     <MESSAGE value="sample page created" />
     <MESSAGE value="files" />
     <MESSAGE value="MileStone1" />
-    <option name="LAST_COMMIT_MESSAGE" value="MileStone1" />
+    <MESSAGE value="minor fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
